@@ -10,6 +10,8 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] GameObject BGM;
     [SerializeField] Dropdown resolution_dropdown;
+    [SerializeField] Dropdown language_dropdown;
+    string save_lang_id = "lang";
     string[] file_paths;
     private void Awake()
     {
@@ -76,5 +78,9 @@ public class Menu : MonoBehaviour
                 Screen.SetResolution(480, 800, false);
                 break;
         }
+    }
+    public void LanguageChanged()
+    {
+        PlayerPrefs.SetInt(save_lang_id , language_dropdown.value);
     }
 }
