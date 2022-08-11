@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject BGM;
     [SerializeField] Dropdown resolution_dropdown;
     [SerializeField] Dropdown language_dropdown;
+    [SerializeField] InputField[] input_fields = new InputField[4];
     string save_lang_id = "lang";
     string[] file_paths;
     private void Awake()
@@ -22,6 +23,17 @@ public class Menu : MonoBehaviour
 #if UNITY_ANDROID || UNITY_IOS
         resolution_dropdown.interactable = false;
 #endif
+        if(input_fields[0].text == "" || input_fields[1].text == "" || input_fields[2].text == "" || input_fields[3].text == "")
+        {
+            input_fields[0].text = "w";
+            input_fields[1].text = "s";
+            input_fields[2].text = "a";
+            input_fields[3].text = "d";
+            for(int i = 0; i < input_fields.Length; i++)
+            {
+                StaticVars.keyboard_ctl[i] = input_fields[i].text;
+            }
+        }
     }
     private void Start()
     {
@@ -82,5 +94,9 @@ public class Menu : MonoBehaviour
     public void LanguageChanged()
     {
         PlayerPrefs.SetInt(save_lang_id , language_dropdown.value);
+    }
+    public void SetInput(int input_id)
+    {
+        StaticVars.keyboard_ctl[input_id] = input_fields[input_id].text;
     }
 }

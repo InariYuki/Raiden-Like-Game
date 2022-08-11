@@ -22,7 +22,6 @@ public class SaveSettingData : MonoBehaviour
     private void Awake()
     {
         path = Application.persistentDataPath + "/Save.txt";
-        print(path);
         if (File.Exists(path))
         {
             LoadData();
