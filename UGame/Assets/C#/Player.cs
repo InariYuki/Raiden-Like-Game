@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform muzzle;
     bool can_fire = true;
+    [SerializeField] float fireInterval;
     private void Update()
     {
         /*if (Input.GetKey(StaticVars.keyboard_ctl[0]))
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(fireInterval);
         can_fire = true;
     }
     private void OnMouseDown()

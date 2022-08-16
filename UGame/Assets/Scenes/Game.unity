@@ -175,7 +175,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d4276e3dc9459914da59ee3862fe6ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -226,9 +226,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537290159}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 298139209}
+        m_TargetAssemblyTypeName: SpawnEnemy, Assembly-CSharp
+        m_MethodName: TooglePauseMenu
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -449,13 +449,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298139207}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!114 &298139209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +471,11 @@ MonoBehaviour:
   enemies:
   - {fileID: 5259748119609281057, guid: 19c7932e8ed5e4f45b6f5261a4002497, type: 3}
   - {fileID: 70338237219853984, guid: 33b203a2b06bd634ba6ceb1f537d2268, type: 3}
+  spawn_interval: 1
+  pauseMenu: {fileID: 1537290159}
+  maxHP: 100
+  hpBar: {fileID: 1073221063}
+  scoreDisplay: {fileID: 1142079947}
 --- !u!1 &536548633
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +578,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
@@ -1279,7 +1288,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d4276e3dc9459914da59ee3862fe6ace, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1329,19 +1338,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1475135094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 849105562}
-        m_TargetAssemblyTypeName: ControlButton, Assembly-CSharp
-        m_MethodName: ChangeGameScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Menu
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1475135094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,6 +1491,7 @@ MonoBehaviour:
   max_y: 4.2
   bullet: {fileID: 4655630846119024535, guid: 4c83d1a28d787014999947475ba06d37, type: 3}
   muzzle: {fileID: 798961399}
+  fireInterval: 1
 --- !u!114 &1600837540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,9 +1692,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1537290159}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 298139209}
+        m_TargetAssemblyTypeName: SpawnEnemy, Assembly-CSharp
+        m_MethodName: TooglePauseMenu
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

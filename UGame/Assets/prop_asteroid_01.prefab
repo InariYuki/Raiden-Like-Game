@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5259748119611282657}
   - component: {fileID: 5259748120574644475}
   - component: {fileID: 5259748120574644422}
+  - component: {fileID: 4673939186018202031}
   m_Layer: 0
   m_Name: prop_asteroid_01
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +113,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.76, y: 1, z: 0.77}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4673939186018202031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5259748119609281057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3498bf7c618a3124f8fda7cb12213c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  destroyTime: 5
+  shootInterval: 0
+  collisionDamage: 50
+  bullet: {fileID: 0}
+  explosion: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 3}
+  muzzle: {fileID: 0}
