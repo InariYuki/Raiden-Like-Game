@@ -30,12 +30,22 @@ public class SpawnEnemy : MonoBehaviour
         Time.timeScale = isPause ? 0 : 1;
         FindObjectOfType<Player>().enabled = isPause ? false : true;
     }
+    public void ResumeTime()
+    {
+        Time.timeScale = 1;
+    }
     public void Hit(float damage)
     {
         HP -= damage;
         hpBar.fillAmount = HP / maxHP;
         if(HP <= 0)
         {
+            //StaticVars.score = totalScore;
+            if(PlayerPrefs.GetInt("highestScore") < totalScore)
+            {
+                PlayerPrefs.SetInt("highestScore", totalScore);
+            }
+            PlayerPrefs.SetInt("Score" , totalScore);
             SceneManager.LoadScene("GameOver");
         }
     }
